@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\addcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('add_data');
 });
+
+Route::post('save_data',[addcontroller::class,'save_data_fun']);
+Route::get('show',[addcontroller::class,'show_fun']);
+Route::get('show',[addcontroller::class,'show_fun']);
+Route::get('/delete/{id}',[addcontroller::class,'delete_fun']);
+Route::get('/update/{id}',[addcontroller::class,'update_fun']);
+Route::any('/update_data_page/{id}',[addcontroller::class,'update_data_page_fun']);
